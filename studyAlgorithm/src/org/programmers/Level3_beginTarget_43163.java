@@ -11,42 +11,40 @@ public class Level3_beginTarget_43163 {
 	}
 	static int answer = 0;
 	public static int solution(String begin, String target, String[] words) {
-		
+
 		boolean[] visited = new boolean[words.length];
-		int nowCnt = 0;
-		answer = words.length;
-		// 한글자씩 변경하므로, 글자수만큼 돈다.
+		
 		fun(begin, 0, visited, words, target);
 		System.out.println(answer);
 		return answer;
 	}
 	public static void fun(String begin, int cnt, boolean[] visited, String[] words, String target) {
-
+		// 한 단어의 한글자씩 변경하므로, 글자수만큼 돈다.
 		for (int i=0; i<begin.length(); i++) {
-			String s1 = begin.substring(0, i) + begin.substring(i+1, begin.length());
 			
+			String s1 = begin.substring(0, i) + begin.substring(i+1, begin.length());
+
 			for(int j=0; j<words.length;  j++) {
 				String s2 = words[j].substring(0, i) + words[j].substring(i+1, words[j].length());
-				String s3 = target.substring(0, i) + target.substring(i+1, target.length());
-				System.out.println("s1: "+s1+", s2: "+s2);
 				if(visited[j] == true)
 					continue;
-				if(s3.equals(s1)) {
-					cnt+= 1;
-					break;
-				}
+				// 한글자를 제외한 두단어가 같다면
 				if(s2.equals(s1)) {
-					System.out.println(words[j]);
-					visited[j] = true;
-					cnt += 1;
-					fun(words[j], cnt, visited, words, target);
-					visited[j] = false;
+					// 비교하는 글자가 타겟이라면  비교 끝
+					if(words[j].equals(target)) {
+						answer = (answer == 0 ) ? cnt+1 : (answer > cnt+1) ? cnt+1 :answer;
+						System.out.println("---->"+answer);
+					}
+					else {
+						
+						visited[j] = true;
+						fun(words[j], cnt+1, visited, words, target);
+						visited[j] = false;
+					}
 				}
 			}
 		}
-		if (cnt < answer)
-			answer = cnt;
-		
+
 	}
 
 }
