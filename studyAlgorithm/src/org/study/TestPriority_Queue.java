@@ -1,4 +1,4 @@
-package org.baekjoon;
+package org.study;
 import java.util.PriorityQueue;
 
 class Vehicle implements Comparable<Vehicle>{
