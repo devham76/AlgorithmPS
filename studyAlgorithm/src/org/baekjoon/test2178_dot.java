@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class test2178 {
+public class test2178_dot {
 	// dx[i] dy[i] 를 조합해서 상하좌우 이동 
 	static int dx[] = {-1, 1, 0, 0};	
 	static int dy[] = {0, 0, 1, -1};
