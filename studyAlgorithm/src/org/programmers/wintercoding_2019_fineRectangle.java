@@ -9,7 +9,7 @@ public class wintercoding_2019_fineRectangle {
 
 		// y = h/w x
 		getRectangle(w, h,  1);
-		//System.out.println(waste);
+		System.out.println(waste);
 		long answer = w*h - waste;
 		return answer;
 	}
@@ -21,10 +21,9 @@ public class wintercoding_2019_fineRectangle {
 		
 		double prev = h/w * (nowX-1);
 		double now = h/w * nowX;
-		if ( now > Math.ceil( prev ) )
-			waste = waste + (int) Math.ceil( now - prev );
-		else
-			waste += 1;
+
+		waste = waste + (int) ( Math.ceil(now) - Math.floor(prev));
+
 		
 		//System.out.println("현재값 : "+(h / w * nowX) +", 이전값의 올림: "+ prev+" , answer: "+answer);
 		
