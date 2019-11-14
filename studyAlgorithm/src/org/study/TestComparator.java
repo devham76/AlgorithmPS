@@ -13,7 +13,7 @@ class trip implements Comparable<trip>{
 	}
 
 	public String getCountry() {
-		return this.country;
+		return this.country;	
 	}
 	
 	@Override
