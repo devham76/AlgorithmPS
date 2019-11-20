@@ -25,6 +25,7 @@ public class kakao_2019_candidate {
 				return 0;
 		}
 	}
+	
 	public static void main(String[] args) {
 		for(int i=1; i< 1 << 4; i++) {
 			System.out.println();
