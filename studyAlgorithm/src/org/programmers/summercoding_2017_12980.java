@@ -8,9 +8,19 @@ public class summercoding_2017_12980 {
 	public static void main(String[] args) {
 		summercoding_2017_12980 s1 = new summercoding_2017_12980();
 		
-		s1.solution1(5000);
-		s1.solution2(5000);
+		s1.solution3(5000);
+		//s1.solution2(5000);
 	}
+	 public int solution3(int n) {
+		 int ans = 0;
+		 while (n != 0) {
+			 if (n%2 != 0) {
+				++ans;
+			 }
+			 n = n/2;
+		 }
+		 return ans;
+	 }
 	
 	//https://n1tjrgns.tistory.com/182
     public int solution1(int n) {
