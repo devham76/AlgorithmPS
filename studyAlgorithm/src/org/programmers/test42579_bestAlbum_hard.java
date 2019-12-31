@@ -4,7 +4,7 @@ import java.util.*;
 
 import org.programmers.kakao_2019_Tree_findWay.Node;
 
-public class test42579_bestAlbum {
+public class test42579_bestAlbum_hard {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -12,7 +12,7 @@ public class test42579_bestAlbum {
 		String[] genres = {"classic", "pop", "classic", "classic", "pop"};	
 		int[] plays = {500, 600, 150, 800, 2500};
 		
-		test42579_bestAlbum t = new test42579_bestAlbum();
+		test42579_bestAlbum_hard t = new test42579_bestAlbum_hard();
 		t.solution(genres, plays);
 		
 	}
