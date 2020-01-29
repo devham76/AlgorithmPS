@@ -1,6 +1,9 @@
 // 다시할것 ㅠㅠㅠ
+//https://velog.io/@ptm0304/%EC%B9%B4%EB%93%9C%EA%B2%8C%EC%9E%84
 // https://www.welcomekakao.com/learn/courses/30/lessons/42896
 package org.programmers;
+
+import java.util.Arrays;
 
 public class test42896_dp_cardGame {
 
@@ -11,56 +14,44 @@ public class test42896_dp_cardGame {
 		t.solution(left, right);
 
 	}
-	static int[] Left,Right;
-	static int[][] dp;
+    private int[][] memo; // memoization 테이블
+    private int[] left;
+    private int[] right;
     public int solution(int[] left, int[] right) {
-        int answer = 0;
-        Left = new int[left.length];
-        Right = new int[right.length];
-        dp = new int[left.length][left.length];
-        for(int i=0; i<left.length; i++) {
-        	Left[i] = left[i];
-        	Right[i] = right[i];
-        	for(int j=0; j<left.length; j++) 
-        		dp[i][j] = -1;
-        	
+        memo = new int[left.length][right.length];
+        for (int i = 0; i < left.length; i++) {
+            Arrays.fill(memo[i], -1);
         }
-        
-        
-        System.out.println(fun(0, 0, 0));
-        return answer;
+        this.left = left;
+        this.right = right;
+        return helper(0,0);
     }
-    public static int fun (int l, int r, int sum) {
-    	int result1,result2,result3, result;
-    	
 
-    	System.out.println("l: "+l+" , r:"+r+ " , sum:"+sum+" dp[l][r]"+dp[l][r]+" / left:"+Left[l]+", right:"+Right[r] );    
-    	if(l == Left.length-1 || r == Right.length-1) {
-    		return sum;
-    	}
-    	if(dp[l][r] > -1)
-    		return dp[l][r];
-    	
-    	int nextL = l+1;
-    	int nextR = r+1;
-    	if (Left[l] > Right[r]) {
-    		//System.out.println("l: "+l+" , r:"+r+ " , sum:"+sum+", Right[r]:"+Right[r]);
-    		//result += Math.max(fun(l, nextR, sum+Right[r]), Math.max( fun(nextL,nextR,sum), fun(nextL, r,sum)) ); 
-    		dp[l][r] =  Math.max( dp[l][r], dp[l][r] +fun(l, nextR, sum+Right[r])); 
-    		dp[l][r] =  Math.max( dp[l][r],  dp[l][r] +fun(nextL,nextR,sum));
-    		dp[l][r] =  Math.max( dp[l][r],  dp[l][r] +fun(nextL, r,sum)) ; 
-    		//System.out.println(result1+", "+result2+", "+result3);
-    		//dp[l][r] = Math.max(result1, Math.max(result2,result3));
-    	}
-    	else {
-    		//System.out.println("l: "+l+" , r:"+r+ " , sum:"+sum);
-    		dp[l][r] =  Math.max( dp[l][r], dp[l][r] + fun(nextL,nextR,sum));
-    		dp[l][r] =  Math.max( dp[l][r], dp[l][r] + fun(nextL, r,sum)); 
-    		//System.out.println(result1+", "+result2);
-    		//dp[l][r] = Math.max(result1,result2);
-    	}
-    	
-    	System.out.println(dp[l][r]);
-    	return dp[l][r];
+    public int helper(int leftInd, int rightInd) {
+        if (left.length == leftInd || right.length == rightInd) {
+            return 0;
+        }
+        if (memo[leftInd][rightInd] != -1) {
+            //이미 최적값을 찾은 상태
+            return memo[leftInd][rightInd];
+        } 
+        if (right[rightInd] < left[leftInd]) {
+            // 오른쪽 카드가 더 작다면 오른쪽 카드를 버리고 더해준다
+            int currAns = helper(leftInd, rightInd+1) + right[rightInd];
+
+            // 계산한 값을 memoization 테이블에 저장
+            memo[leftInd][rightInd] = currAns;
+            return currAns;
+        }
+        else {
+            // 왼쪽카드만 버리거나 오른쪽카드와 왼쪽카드를 둘다 버리고 그 둘중 최적값을 계산
+            int currAns = Math.max(helper(leftInd + 1, rightInd + 1),
+            helper(leftInd + 1, rightInd));
+
+            // 최적값을 memoization 테이블에 저장
+            memo[leftInd][rightInd] = currAns;
+            return currAns;
+        }
     }
+ 
 }
