@@ -1,4 +1,4 @@
-package org.programmers;
+package org.important;
 
 import java.util.*;
 public class kakao_2019_Tree_findWay {
