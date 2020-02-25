@@ -37,7 +37,13 @@ public class kakao_2019_Tree_findWay {
 			return b.y - a.y;
 		}
 	};
-	
+	/*
+	 *그냥 sort로도 정리가능
+	Nodes.sort((node1,node2) -> 
+		(node1.y == node2.y) ? 
+			(node1.x - node2.x) : (node1.y - node2.y));
+
+	*/
 	// 노드들로 트리를 만들어준다
 	void addNode(Node parent, Node child) {
 		if(child.x < parent.x) {
