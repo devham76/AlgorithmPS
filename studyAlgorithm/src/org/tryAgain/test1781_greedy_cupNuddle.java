@@ -1,11 +1,14 @@
 package org.tryAgain;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
+/*
+ * 탐욕법 ; 당장최선의방법을 수행한다. 해당deadline까지 풀수있는 문제중에 컵라면수가 큰것만 고른다.
+ * deadline의 오름차순으로 정렬
+ * deadline 2일때 --> 1/3 , 2/8, 2/9 (데드라인/컵라면) 이면
+ * deadline만큼의 문제만 풀수있기 때문에 1문제를 제거해야하고, 제일 컵라면 수가 적은 1/3문제이다
+ * */
 public class test1781_greedy_cupNuddle {
 
 	public static void main(String[] args) throws IOException {
@@ -14,68 +17,49 @@ public class test1781_greedy_cupNuddle {
 		int n = Integer.parseInt(br.readLine());
 		Long sum = 0l;
 		int[][] arr = new int[n][2];
-		int[][] answer = new int[n+1][2];
 		
+		List<Problem> problemList = new ArrayList<>();
 		for(int i=0; i<n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			arr[i][0] = Integer.parseInt(st.nextToken());
-			arr[i][1] = Integer.parseInt(st.nextToken());
+			int deadLine = Integer.parseInt(st.nextToken());
+			int nuddle	 = Integer.parseInt(st.nextToken());
+			problemList.add(new Problem(deadLine,nuddle));
 		}
-		Arrays.sort(arr,(o1,o2) ->{
-			if(o1[0] == o2[0])
-				return Integer.compare(o2[1], o1[1]);
-			else
-				return Integer.compare(o1[0], o2[0]);
-		});
 		
-		int time = 1; int prev=0; int min=0; int minIdx = 1;
+		
+		Collections.sort(problemList,(o1,o2) ->{
+				return o1.deadLine-o2.deadLine;
+		});
+
+		
+		PriorityQueue<Problem> problemQ = new PriorityQueue<>();
 		for(int i=0; i<n; i++) {
-			if(prev == arr[i][0]) {
-				if(arr[i][1] > min) {
-					answer[minIdx][0] = arr[i][0];
-					answer[minIdx][1] = arr[i][1];
-					
-				}
+			Problem problem = problemList.get(i);
+			problemQ.offer(problem);
+			int deadLine = problem.deadLine;
+			// 데드라인 보다 문제를 많이 뽑았으면, 컵라면이 적은 문제를 제거한다
+			// 데드라인이 2인데 1/3 , 2/8, 2/9 (데드라인/컵라면) 이 들어가있으면 1/3문제를 제거한다.
+			while(deadLine < problemQ.size()) {
+				problemQ.poll();
 			}
-			
-			if(time > arr[i][0]) continue;
-			
-			
-			if(answer[time][0] == 0) {
-				answer[time][0] = arr[i][0];
-				answer[time][1] = arr[i][1];
-				prev = arr[i][0];
-				time++;
-				continue;
-			}
-			
-			
-			
 		}
+		while(!problemQ.isEmpty()) {
+			sum += problemQ.poll().nuddle;
+		}
+		System.out.println(sum);
+		
 	}
 
 }
-/*
- #include <iostream>
-#include <algorithm>
-#include <queue>
-using namespace std;
-pair<int,int> arr[200200];
-int n;
- 
-int main(){
-    //freopen("input.txt","r",stdin);
-    scanf(" %d",&n);
-    for(int i=0;i<n;i++) scanf(" %d %d",&arr[i].first,&arr[i].second);
-    sort(arr,arr+n);
-    priority_queue<int> pq;
-    for(int i=0;i<n;i++){
-        int d = arr[i].first;
-        pq.push(-arr[i].second);
-        while(d<pq.size()) pq.pop();
-    }
-    int ans=0;
-    while(!pq.empty()) ans+=pq.top(),pq.pop();
-    printf("%d\n",-ans);
- * */
- */
+class Problem implements Comparable<Problem>{
+	int deadLine;
+	int nuddle;
+	Problem(int deadLine, int nuddle){
+		this.deadLine = deadLine;
+		this.nuddle = nuddle;
+	}
+	@Override
+	public int compareTo(Problem arg) {
+		return this.nuddle - arg.nuddle;
+	}
+}
