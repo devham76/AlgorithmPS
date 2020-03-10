@@ -1,5 +1,5 @@
 //https://www.acmicpc.net/problem/3109
-Æ²¸²
+
 package org.tryAgain;
 
 import java.util.Scanner;
