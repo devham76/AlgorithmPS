@@ -18,7 +18,7 @@ public class test11053_dp {
 		tailTable[0] = arr[0];	// 빈 배열에 첫번째 요소 추가
 		int tailIdx = 0;		// 꼬리의 index
 		
-		for(int i=1; i<arr.length; i++) {
+		for(int i=1; i<arr.length; i++) {   
 			// 넣을 요소가 꼬리요소 보다 크다면 삽입
 			if(arr[i] > tailTable[tailIdx]) {
 				tailTable[++tailIdx] = arr[i];
