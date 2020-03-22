@@ -11,7 +11,7 @@ public class test9663_backTracking_nQueen {
 		N = sc.nextInt();
 		for(int i=1; i<=N; i++) {
 			int[] col = new int[N+1];
-			// 1Çà1~N¿­¿¡ ¸»À» ³õ´Â´Ù
+			// 1í–‰1~Nì—´ì— ë§ì„ ë†“ëŠ”ë‹¤
 			col[1] = i; 
 			dfs(col, 1);
 		}
@@ -26,7 +26,7 @@ public class test9663_backTracking_nQueen {
 		}
 		
 		for(int i=1; i<=N; i++) {
-			// row´ÙÀ½¹øÂ° ÇàÀÇ ¿­¿¡ Â÷·Ê·Î ¸»À» ³õ´Â´Ù
+			// rowë‹¤ìŒë²ˆì§¸ í–‰ì˜ ì—´ì— ì°¨ë¡€ë¡œ ë§ì„ ë†“ëŠ”ë‹¤
 			col[row+1] = i;
 			if(isPossible(col, row+1)) {
 				dfs(col, row+1);
@@ -35,14 +35,14 @@ public class test9663_backTracking_nQueen {
 		
 	}
 
-	// ÇØ´ç ÇàÀÇ ¿­¿¡ ¸»À» ³õÀ»¼öÀÖ´ÂÁö È®ÀÎÇÑ´Ù
+	// í•´ë‹¹ í–‰ì˜ ì—´ì— ë§ì„ ë†“ì„ìˆ˜ìžˆëŠ”ì§€ í™•ì¸í•œë‹¤
 	private static boolean isPossible(int[] col, int newRow) {
 		for(int i=1; i<newRow; i++) {
-			// »õ·Î ³õÀ» Çà°ú ÀÌÀüÀÇ Çà¿¡ ³õÀÎ ¸»ÀÌ °°Àº ¿­¿¡ ÀÖ´ÂÁö È®ÀÎÇÑ´Ù
+			// ìƒˆë¡œ ë†“ì„ í–‰ê³¼ ì´ì „ì˜ í–‰ì— ë†“ì¸ ë§ì´ ê°™ì€ ì—´ì— ìžˆëŠ”ì§€ í™•ì¸í•œë‹¤
 			if(col[i] == col[newRow]) 
 				return false;
 			
-			// »õ·Î ³õÀ» Çà°ú ÀÌÀüÀÇ Çà¿¡ ³õÀÎ ¸»ÀÌ ´ë°¢¼±¿¡ À§Ä¡ÇØ ÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
+			// ìƒˆë¡œ ë†“ì„ í–‰ê³¼ ì´ì „ì˜ í–‰ì— ë†“ì¸ ë§ì´ ëŒ€ê°ì„ ì— ìœ„ì¹˜í•´ ìžˆëŠ”ì§€ í™•ì¸í•œë‹¤.
 			if(Math.abs(i-newRow) == Math.abs(col[i]-col[newRow]))
 				return false;
 		}
