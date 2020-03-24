@@ -1,33 +1,11 @@
 package org.study;
 
 // https://4ngs.tistory.com/24
-// ¹®ÀÚ¿­À» ÇÏ³ª¾¿ ÂÉ°³¼­ °¢°¢À» °´Ã¼¾ÈÀÇ ¹è¿­¿¡ ³Ö°í 
-// ´ÙÀ½ ¹®ÀÚ¸¦ ´Ù½Ã ´ÙÀ½ °´Ã¼ÀÇ ¹è¿­¿¡ ³Ö´Â °Í
+// ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½É°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½Ö°ï¿½ 
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½
 
 import java.io.*;
 public class trieEx {
-/*
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int T = Integer.parseInt(br.readLine());
-		String[] str = null;
-		int n=0,m=0;
-		String[] nArr,mArr;
-		TrieNode nRoot;
-		
-	}
 	
-*/
 
-}
-class TrieNode{
-	TrieNode[] child;
-	boolean isTerminal;
-	TrieNode(){
-		// ÃÖ´ë 26±ÛÀÚ
-		this.child = new TrieNode[26];
-		// ¹®ÀÚ¿­ÀÌ ³¡³µ´ÂÁö È®ÀÎ
-		this.isTerminal = false;
-	}
 }

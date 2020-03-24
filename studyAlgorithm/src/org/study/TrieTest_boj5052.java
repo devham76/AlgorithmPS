@@ -24,41 +24,36 @@ public class TrieTest_boj5052 {
 	public static void main(String[] args) {
 		int T = nextInt();	// testcase
 		
-		for(int t=1; t <=T; t++) {
-			int N = nextInt();	// ÀüÈ­¹øÈ£ ¼ö
+		while(T>0) {
+			T--;
 			
+			int N = nextInt();	// ì „í™”ë²ˆí˜¸ ìˆ˜
 			Node root = new Node('r',0);
 			for(int n=1; n<=N; n++) {
 				Node node = root;
-				String str = nextLine();	// ÀüÈ­¹øÈ£ ÇÑÁÙÀĞÀ½
+				String str = nextLine();	// ì „í™”ë²ˆí˜¸ í•œì¤„ì½ìŒ
 				
 				for (int i=0; i<str.length(); i++) {
 					char c = str.charAt(i);
-					// ÇØ´ç ±ÛÀÚ·Î ½ÃÀÛÇÏ´Â °¡Áö°¡ ¾øÀ¸¸é
-					// ÇØ´ç ±ÛÀÚ·Î ½ÃÀÛÇÏ´Â °¡Áö¸¦ ¸¸µé¾îÁØ´Ù
+					// í•´ë‹¹ ê¸€ìë¡œ ì‹œì‘í•˜ëŠ” ê°€ì§€ê°€ ì—†ìœ¼ë©´
+					// í•´ë‹¹ ê¸€ìë¡œ ì‹œì‘í•˜ëŠ” ê°€ì§€ë¥¼ ë§Œë“¤ì–´ì¤€ë‹¤
 					// c-'0' : char to int
+					System.out.println("c ==>"+c);
 					if( node.nxt[c-'0'] == null) {
-						node.cnt++;
+						node.cnt++;	// ì´ ì „ê¸€ìì˜ nodeìˆ˜ ì¦ê°€
 						node.nxt[c-'0']  = new Node(c,0);
 						System.out.println(node.cnt+" , c-'0':"+(c-'0'));
-						for(int k=0; k<node.nxt.length;k++){
-							System.out.print(node.nxt[k]+" ");
-						}
-						System.out.println();
 					}
-					// ÇöÀç ³ëµå´Â ¸¸µé¾îÁø ³ëµå°¡ µÈ´Ù?
+					
+					// í•´ë‹¹ ê¸€ìë¥¼ ê°€ë¥´í‚¨ë‹¤.
 					node = node.nxt[c-'0'];
+					System.out.println("data="+node.data+" cnt="+node.cnt);
 				}
 				
-				System.out.println("---------node cnt:"+root.cnt);
-				for(int k=0; k<root.nxt.length;k++){
-					System.out.print(root.nxt[k]+" ");
-				}
-				System.out.println();
 			}
 			res = 0;
 			searchLeaf(root);
-			// res °¡ ÀüÈ­¹øÈ£ ¼ö°¡ ¾Æ´Ï¶ó¸é 
+			// res ê°€ ì „í™”ë²ˆí˜¸ ìˆ˜ê°€ ì•„ë‹ˆë¼ë©´ 
 			if(res != N)
 				System.out.println("No");
 			else
@@ -71,10 +66,9 @@ public class TrieTest_boj5052 {
 			res++;
 			return;
 		}
-		// nodeÀÇ °³¼ö°¡ 0ÀÌ ¾Æ´Ï¶ó¸é
-		// nodeÀÚ½Ä ÃÖ´ë °³¼ö10
+		// nodeì˜ ê°œìˆ˜ê°€ 0ì´ ì•„ë‹ˆë¼ë©´
+		// nodeìì‹ ìµœëŒ€ ê°œìˆ˜10
 		for (int i=0; i<10; i++) {
-			// nodeÀÇ ÀÚ½ÄÀÌ ÀÖ´Ù¸é nodeÀÇ ÀÚ½Äµµ Ã£¾Æº»´Ù
 			if(node.nxt[i] != null)
 				searchLeaf(node.nxt[i]);
 		}
@@ -84,7 +78,7 @@ public class TrieTest_boj5052 {
 class Node {
 	char data;
 	int cnt;
-	Node[] nxt = new Node[10];	// ÀüÈ­¹øÈ£´Â ±æ¾î¾ß 10ÀÚ¸®
+	Node[] nxt = new Node[10];	// ì „í™”ë²ˆí˜¸ëŠ” ê¸¸ì–´ì•¼ 10ìë¦¬
 	
 	public Node(char data, int cnt) {
 		this.data = data;

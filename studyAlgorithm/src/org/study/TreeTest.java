@@ -19,19 +19,19 @@ public class TreeTest {
 		System.out.println("Binary Tree >>>");
 		bst.printBST();
 		
-		System.out.println("Is There '9'?>>>");
-		TreeNode p1 = bst.searchBST(9);
+		System.out.println("Is There '90'?>>>");
+		TreeNode p1 = bst.searchBST(90);
 		if(p1 != null)
-			System.out.println(p1.data+" 성공");
+			System.out.println(p1.data+"  exist");
 		else
-			System.out.println("실패");
+			System.out.println("no");
 		
 		System.out.println("Is There '10'?>>>");
 		TreeNode p2 = bst.searchBST(10);
 		if(p2 != null)
-			System.out.println(p2.data+" 성공");
+			System.out.println(p2.data+"  exist");
 		else
-			System.out.println("실패");
+			System.out.println("no");
 		
 		
 
