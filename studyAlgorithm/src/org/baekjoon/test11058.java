@@ -8,14 +8,20 @@ public class test11058 {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 		int answer = N;
+		int[] dp = new int[N+1];
+		for(int i=1; i<7; i++)
+			dp[i] = i;
+		
 		if(N >= 7) {
 			
-			for(int i=2; i <= (N-1)/2 ; i++) {
-				System.out.println(i+" * "+(N-1-i)+"="+i * (N-1-i));
-				answer = Math.max(answer, i * (N-1-i));
+			for(int i=7; i <=N ; i++) {
+				for(int j=1; j<=i-1; j++) {
+					System.out.println(i+" , "+ (i-j-1)+" ==>"+( j * dp[i-j-1]));
+					dp[i] = Math.max(dp[i], j * dp[i-j-1]);
+				}
 			}
 		}
-		System.out.println(answer);
+		System.out.println(dp[N]);
 
 	}
 
