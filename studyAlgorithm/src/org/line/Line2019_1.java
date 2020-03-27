@@ -4,22 +4,19 @@ import java.util.*;
 
 public class Line2019_1 {
 	static int cony, brown;
-	static int cRoad[];
-	static int bRoad[];
-	static Queue<Integer> cQ, bQ;
+	static Queue<int[]> q;
+	static boolean[] visited;
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		cony = sc.nextInt();
 		brown = sc.nextInt();
 
 		if (cony != brown) {
-			cRoad = new int[100001];
-			bRoad = new int[100001];
-			cQ = new LinkedList<>();
-			bQ = new LinkedList<>();
-			
-			cQ.add(cony);
-			bQ.add(brown);
+			int[] position = { cony, brown, 0 };
+			q = new LinkedList<>();
+			visited = new boolean[200001];
+			q.offer(position);
 			bfs();
 		} else
 			System.out.println(0);
@@ -28,46 +25,37 @@ public class Line2019_1 {
 	static int count = 0;
 
 	public static void bfs() {
-		int time = 0;
+		int time = 1;
 		while (true) {
-
+		
 			int size = q.size();
 			for (int s = 0; s < size; s++) {
-				int current = q.poll();
-				int[] move = { current - 1, current + 1, current * 2 };
-				// 큐에 입력할때 방문확인하지 않고 	꺼낼때 확인
-				visited[current] = true;
+				
+				int[] current = q.poll();
+				visited[ current[1] ] = true;
+				int[] move = { current[1] - 1, current[1] + 1, current[1] * 2 };
+				int nextCony = current[0] + time;
 				// 3가지 방법으로 움직일수있다.
 				for (int i = 0; i < 3; i++) {
-					int next = move[i];
+					int nextBrown = move[i];
 
-					// 범위를 벗어날수없고, 방문한곳은 못들어간다
-					if (next >= 0 && next < 100001 && visited[next] == false) {
-						q.add(next);
-						road[next] = current;
-						if (next == dongsang) {
-							// 숨바꼭질4일땐 추적.
-							/*
-							int before = next;
-							for(int k=0; k<time;k++) {
-								System.out.print(road[before]+" ");
-								before = road[before];
-							}
-							*/
-							count++;
+					// 브라운은 범위를 벗어날수없고, 방문하지 않은 곳만 방문가능하다.
+					if (nextBrown > 0 && nextBrown < 200001 && visited[nextBrown] == false) {
+						System.out.println("cony:"+nextCony+" brown:"+nextBrown+" time:"+time);
+						int[] newPosition = { nextCony, nextBrown, time };
+						q.add(newPosition);
+						visited[nextBrown] = true;
+						if (nextCony == nextBrown) {
+							System.out.println(time);
+							return;
 						}
-						
+
 					}
 
 				}
 			}
 			time++;
-			// 최소시간일때 도착하면 처음 count가 0보다 커지니까 그 이상의 시간은 볼필요없으므로 종료
-			if(count > 0)
-				break;
 		}
-		System.out.println();
-		System.out.println(time + "\n" + count);
 
 	}
 
