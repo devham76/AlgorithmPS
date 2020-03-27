@@ -25,7 +25,7 @@ public class test14442 {
 				map[i][j] = Integer.parseInt(str.charAt(j)+"");
 			}
 		}
-		//
+		
 		
 		bfs();
 	}	
@@ -33,7 +33,9 @@ public class test14442 {
 	static int[] dy = { -1, 0, 1, 0 };
 	private static void bfs() {
 		Queue<location> q = new LinkedList<>();
+		// (0,0)까지 0번 부셔서 1번이동(시작값포함)
 		q.offer(new location(0,0,1,0));
+		
 		while(!q.isEmpty()) {
 			location l = q.poll();
 			visited[l.x][l.y][l.k] = true;
@@ -51,6 +53,7 @@ public class test14442 {
 					continue;
 				
 				if(map[x][y] == 1) {
+					// 지금까지 부순 횟수 >= 가능횟수 이면 더이상 못부순다.
 					if(l.k >= K )
 						continue;
 					if(visited[x][y][l.k+1] == true)
