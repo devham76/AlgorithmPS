@@ -1,5 +1,5 @@
 // https://www.acmicpc.net/problem/14500 
-// ±¸ÇöÇÏ±â ¾î·Á¿î ¹®Á¦´Â ¾Æ´Ï¿´Áö¸¸ ¹®Á¦¸¦ ÇØ°áÇÏ´Â ¹æ¹ýÀÌ ¾î·Á¿ü´Ù
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 package org.important;
 
 import java.util.Arrays;
@@ -24,7 +24,7 @@ public class boj_test14500_dfs_tetromise {
 
 		for (int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
-				dfs1(i,j,0,0);	// ÇØ´ç ÁÂÇ¥¸¦ ¹æ¹®Çß´Ù°í Ç¥½ÃÇÏÁö ¾ÊÀ¸¹Ç·Î i,j,0,0·ÎÇØ¾ßÇÔ !! Á¶½É !
+				dfs1(i,j,0,0);	// ï¿½Ø´ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½æ¹®ï¿½ß´Ù°ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ i,j,0,0ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ !! ï¿½ï¿½ï¿½ï¿½ !
 				dfs2(i,j);
 			}
 		}
@@ -33,21 +33,21 @@ public class boj_test14500_dfs_tetromise {
 	static int max = 0;
 	static int[] dx = {1,-1,0,0};
 	static int[] dy = {0,0,1,-1};
-	// ¤Ç ¸¦ Á¦¿ÜÇÑ ³ª¸ÓÁö´Â dfs·Î Ã³¸®°¡´ÉÇÏ´Ù
+	// ã…— ë¥¼ ì œì™¸í•œ ë‚˜ë¨¸ì§€ëŠ” dfsë¡œ ì²˜ë¦¬ê°€ëŠ¥í•˜ë‹¤
 	static void dfs1(int x, int y, int result, int depth) {
 		if(depth == 4) {
 			max = Math.max(max, result);
 			return;
 		}
 		
-		// ÇØ´çÁÂÇ¥¿¡¼­ »óÇÏÁÂ¿ì È®ÀÎÇÏ¿© ¹æ¹®¾ÈÇÑ°÷¿¡ ¹æ¹®ÇÑ´Ù
+		// ï¿½Ø´ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ È®ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½æ¹®ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½æ¹®ï¿½Ñ´ï¿½
 		for(int i=0; i<4; i++) {
 			int nx = dx[i] + x;
 			int ny = dy[i] + y;
-			// ¹üÀ§ ¹þ¾î³²
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³²
 			if(nx <0 || nx >=N || ny<0 || ny >=M)
 				continue;
-			// ÀÌ¹Ì¹æ¹®ÇßÀ½
+			// ï¿½Ì¹Ì¹æ¹®ï¿½ï¿½ï¿½ï¿½
 			if(visited[nx][ny] == true)
 				continue;
 			
@@ -58,10 +58,10 @@ public class boj_test14500_dfs_tetromise {
 	}
 	
 	static void dfs2(int x, int y) {
-		int outNum=0;	// ¹üÀ§¸¦ ¹þ¾î³­ ¿µ¿ª°³¼ö
+		int outNum=0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		int[] nums = new int[4];
 		for(int i=0; i<4; i++) {
-			if(outNum >= 2) // ¹üÀ§¸¦ ¹þ¾î³­ ¿µ¿ª°³¼ö°¡ 2°³ÀÌ»ó ÀÌ¸é ¸ø±¸ÇÏ¹Ç·Î ³ª°£´Ù
+			if(outNum >= 2) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ï¿½Ì»ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				return;
 			int nx = dx[i] + x;
 			int ny = dy[i] + y;
@@ -75,7 +75,7 @@ public class boj_test14500_dfs_tetromise {
 		Arrays.sort(nums);
 		int result = board[x][y];
 		for(int i=3; i>0; --i) {
-			result += nums[i];	// Å«°Å ¼¼°³¸¸ ´õÇÑ´Ù
+			result += nums[i];	// Å«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´ï¿½
 			//System.out.println("result: "+result);
 		}
 		max = Math.max(max, result);

@@ -12,38 +12,32 @@ public class test12865 {
 		int n = sc.nextInt();
 		int k = sc.nextInt();
 
-		List<product> plist = new LinkedList<>();
-		for (int i = 0; i < n; i++) {
-			plist.add(new product(sc.nextInt(), sc.nextInt()));
+		// dp[idx][limit] : 0~idx번까지의 물건을 limit 무게까지 넣었을때 최대 가치
+		int[][] dp = new int[n + 1][k + 1];
+		int[][] product = new int[n + 1][2]; // 0:무게 1:가치
+		for (int i = 1; i <= n; i++) {
+			int weight = sc.nextInt();
+			int value = sc.nextInt();
+			product[i][0] = weight;
+			product[i][1] = value;
 		}
-		Collections.sort(plist);
-		
-		int max = 0;
-		for (int i = 0; i < n; i++) {
-			product p = plist.get(i);
-			int weight = p.weight;
-			for(int j=i+1; j<n; j++) {
-				
+
+		for (int idx = 1; idx <= n; idx++) {
+			for (int limit = 1; limit <= k; limit++) {
+				// 현재 물건 전까지 물건들로 limit무게 까지 만들 수 있는 최대 가치 입력
+				dp[idx][limit] = dp[idx - 1][limit];
+				if (limit >= product[idx][0]) {
+
+					int curWeight = product[idx][0];
+					int curValue = product[idx][1];
+
+					// 현재 물건을 넣기 이전의 가치 vs 현재 물건의 가치 + (limit-현재물건의 무게)일때 최대가치
+					dp[idx][limit] = Math.max(dp[idx - 1][limit], curValue + dp[idx - 1][limit - curWeight]);
+				}
 			}
-			
+
 		}
+		System.out.println(dp[n][k]);
 	}
 
-}
-
-class product implements Comparable<product> {
-
-	int weight;
-	int value;
-
-	product(int weight, int value) {
-		this.weight = weight;
-		this.value = value;
-	}
-	
-	@Override
-	public int compareTo(product arg0) {
-
-		return this.weight - arg0.weight;
-	}
 }
