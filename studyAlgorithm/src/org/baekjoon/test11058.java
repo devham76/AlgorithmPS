@@ -14,11 +14,15 @@ public class test11058 {
 		
 		if(N >= 7) {
 			
-			for(int i=7; i <=N ; i++) {
-				for(int j=1; j<=i-1; j++) {
-					System.out.println(i+" , "+ (i-j-1)+" ==>"+( j * dp[i-j-1]));
-					dp[i] = Math.max(dp[i], j * dp[i-j-1]);
-				}
+			for(int given=7; given <=N ; given++) {
+				// j가 3인이유
+				// 전체선택, 복사, 붙여넣기를 하려면 최소 3번이 남아야 한다.
+				for(int remain=3; remain<=given; remain++) {	
+					int printed = dp[given-remain];
+					int buffer = dp[given-remain];	// 프린트 된 만큼 버퍼에있다
+					int V_count = remain-2; // 남은 버튼의 개수 - (전체선택, 복사) = 붙여넣기 가능한 횟수
+					dp[given] = Math.max(dp[given], printed + buffer*V_count);
+				}	
 			}
 		}
 		System.out.println(dp[N]);
