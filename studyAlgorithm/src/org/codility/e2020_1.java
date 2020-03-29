@@ -1,0 +1,36 @@
+package org.codility;
+
+import java.util.*;
+
+public class e2020_1 {
+
+	public static void main(String[] args) {
+		int[] A = {2,3,3,4,5,6,11,11,11,11,11,11,11,11,11,11,11};
+		
+		Arrays.sort(A);
+		
+		int idx = 0;
+		int max = 0;
+		while (idx < A.length) {
+			int number = A[idx];
+			int count = 1;
+			int i = idx+1;
+			for(; i<A.length; i++) {
+				
+				if(number == A[i]) {
+					count++;
+				}
+				else {
+					
+					break;
+				}
+			}
+			if(count != number)
+				count = 0;
+			max = Math.max(max, count);
+			idx = i;
+		}
+		System.out.println(max);
+	}
+
+}
