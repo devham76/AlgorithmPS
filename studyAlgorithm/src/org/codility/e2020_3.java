@@ -5,6 +5,7 @@ import java.util.HashMap;
 public class e2020_3 {
 
 	public static void main(String[] args) {
+		// 이메일 주소 만들기
 		String S = "John Don; Peter Benjia Parke; Peter Benjia Parke; Marry Jane Waston-Parkek; John hey Don";
 		String C = "Example";
 

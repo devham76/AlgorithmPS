@@ -3,8 +3,11 @@ package org.codility;
 public class e2020_4 {
 
 	public static void main(String[] args) {
-		int[] A = {1,3,2,5,8};// 오류발생...
-
+		int[] A = {1,2,3,4};// 오류발생...
+		// 요소 하나를 제거해서 high, low, hight, low 만들기
+		// 처음부터 만들수있으면 0, 하나만 제거하면 안될때 -1
+		// 틀린듯. 1,3,2,5,8  / 1,2,4 일때 이상
+		
 		
 		int answer = 0;
 		for (int remove = -1; remove < A.length; remove++) {

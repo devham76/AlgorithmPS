@@ -6,7 +6,7 @@ public class e2020_1 {
 
 	public static void main(String[] args) {
 		int[] A = {2,3,3,4,5,6,11,11,11,11,11,11,11,11,11,11,11};
-		
+		// 2가2개, 3이3개, 4가 4개있으면 제일많은 4반환하시오
 		Arrays.sort(A);
 		
 		int idx = 0;

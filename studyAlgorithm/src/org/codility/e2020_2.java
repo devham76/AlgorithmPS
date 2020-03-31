@@ -9,6 +9,7 @@ public class e2020_2 {
 
 	public static void main(String[] args) {
 		int[] A = {51, 17, 71, 42, 33, 170, 180, 1};
+		// 각자리수를 더한값 : sum , sum이 같은 두수의 합이 최대인것을 구하시오
 		List<number> list = new ArrayList<>();
 		for(int i=0; i<A.length; i++) {
 			list.add(new number(A[i], getDigit(A[i])));
