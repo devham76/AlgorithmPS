@@ -7,10 +7,11 @@ public class CatalanNumber {
 	public static void main(String[] args) {
 		int N = 10;
 		for (int i = 1; i <= N; i++) {
-			System.out.println(catalan(i));
+			System.out.print(catalan(i)+ ", ");
 		}
 
 		System.out.println();
+		
 		dp = new int[N + 1];
 		dp[0] = 1;
 		dp[1] = 1;
