@@ -17,6 +17,11 @@ public class test4811 {
 			
 			System.out.println(n+" : "+pillCnt(full, half, pillArray));
 			
+			for(int i=0; i<2*n+1; i++) {
+				for(int j=0; j<2*n+1; j++) {
+					System.out.print(pillArray[i][j]+" ");
+				}
+			}
 		}
 
 	}
