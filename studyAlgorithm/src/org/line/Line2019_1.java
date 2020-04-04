@@ -9,8 +9,8 @@ public class Line2019_1 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		cony = sc.nextInt();
-		brown = sc.nextInt();
+		cony = sc.nextInt();	// C, C + 1, C + 3, C + 6, ...
+		brown = sc.nextInt();	// B – 1, B + 1, 2 * B 
 
 		if (cony != brown) {
 			int[] position = { cony, brown, 0 };
