@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Test2004_3 {
-
+/*
+ * n개 0->1로 바꿀수있다.
+ * 연속된1의 가장큰 길이구하기 
+ * */
 	public static void main(String[] args) {
 		String r = "111011110011111011111100011111";
 		String r1 = "0011001000";

@@ -1,11 +1,21 @@
 package org.line;
 
 public class Test2004_2 {
-
+/*
+ *  정답    1 2 3 4 5 1 2 3 4 5
+ *  사람1 5 5 1 2 5 1 3 4 5 5
+ *  사람2 5 5 1 3 1 2 3 4 5 5
+ *  사람3 5 5 1 3 1 2 3 4 5 4
+ * 오답이 같은 사람의 커닝수구하기
+ * 
+ * */
 	public static void main(String[] args) {
 		String[] ss = {"24553", "24553", "24553", "24553"};
-		String a = "24551";
+		String a = "14553";
 		solution(a, ss);
+		String[] ss2 = {"5512513455", "5513123455", "5513123454"};
+		String a2 = "1234512345";
+		//solution(a2, ss2);
 	}
 
 	public static int solution(String answer_sheet, String[] sheets) {

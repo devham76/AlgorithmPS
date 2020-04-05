@@ -2,13 +2,17 @@ package org.line;
 
 import java.util.*;
 
-
+/*
+ * datasource : 문서, 태그1태그2...
+ * tags에 있는 태그를 가지고 있는 문서 나열.
+ * */
 public class Test2004_5 {
 
 	public static void main(String[] args) {
-		String[][] d = { { "doc1", "t1", "t2", "t3" }, { "doc2", "t0", "t2", "t3" }, { "doc3", "t1", "t6", "t7" },
+		String[][] d = { { "doc1", "t1", "t2", "t3" }, 
+				{ "doc2", "t0", "t2", "t3" }, { "doc3", "t1", "t6", "t7" },
 				{ "doc4", "t1", "t2", "t4" }, { "doc5", "t6", "t100", "t8" } };
-		String[] t = { "t1", "t2", "t3" };
+		String[] t = { "t1", "t2", "t3","t" };
 		solution(d, t);
 	}
 
@@ -51,7 +55,7 @@ public class Test2004_5 {
 		String[] answer = new String[maxLen];
 		for(int i=0; i<maxLen; i++) {
 			answer[i] = list.get(i).name;
-			//System.out.println(list.get(i).name+" "+list.get(i).cnt);
+			System.out.println(list.get(i).name+" "+list.get(i).cnt);
 		}
 		return answer;
 	}

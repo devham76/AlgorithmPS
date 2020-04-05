@@ -3,11 +3,16 @@ package org.line;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
+/*
+ * snapshots 원본
+ * transactions 기록
+ * 이름, 숫자 구하기
+ * */
 public class Test2004_4 {
 
 	public static void main(String[] args) {
-		String[][] snapshots = { { "ACCOUNT1", "100" }, { "ACCOUNT2", "150" } };
+		String[][] snapshots = { { "ACCOUNT1", "100" }, { "ACCOUNT2", "150" }
+		,{ "AACOUNT0", "150" }};
 		String[][] transactions = { 
 				{"1", "SAVE", "ACCOUNT2", "100"},
 {"2", "WITHDRAW", "ACCOUNT1", "50"}, 

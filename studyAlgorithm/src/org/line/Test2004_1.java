@@ -1,7 +1,9 @@
 package org.line;
 
 public class Test2004_1 {
-
+/*
+ * (), <>,{}, [] 개수구하기. 올바르지않으면 -1
+ * */
 	public static void main(String[] args) {
 		String a = "hi";
 		String a1 = "lint[hi]";
