@@ -6,6 +6,7 @@ import java.util.*;
  * datasource : 문서, 태그1태그2...
  * tags에 있는 태그를 가지고 있는 문서 나열.
  * */
+
 public class Test2004_5 {
 
 	public static void main(String[] args) {
