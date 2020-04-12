@@ -12,13 +12,13 @@ public class dp {
 		int n = sc.nextInt();
 		
 		dp = new int[n+1];
-		Arrays.fill(dp, -1);	// ¹è¿­ÀÇ ¸ðµç ¿ä¼Ò¸¦ -1·Î Ã¤¿ì±â
+		Arrays.fill(dp, -1);	// ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Ò¸ï¿½ -1ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½
 
 		call = new int[n+1];
 		org_fibonacci(n);
 		int i = 0;
 		for(int e:call)
-		System.out.println("F("+ i++ +"): "+e+"È¸ È£Ãâ");
+		System.out.println("F("+ i++ +"): "+e+"È¸ È£ï¿½ï¿½");
 		
 		//System.out.println(fibonacci(n));
 		//fibonacci2(n);
@@ -26,18 +26,18 @@ public class dp {
 		//	System.out.print(e+", ");
 	}
 	
-	// Å¾ ´Ù¿î
+	// Å¾ ï¿½Ù¿ï¿½
 	static int fibonacci(int n) {
 		if(n==0) return 0;
 		if(n==1) return 1;
-		// ÀÌ¹Ì °ªÀ» °è»êÇÑ ÀûÀÌ ÀÖ´Ù¸é ±× °ªÀ» ¹Ù·Î ¸®ÅÏ
+		
 		if(dp[n] != -1) return dp[n];
-		// ¾Æ´Ï¶ó¸é °è»êÇØ¼­ dp¸®½ºÆ®¿¡ ³Ö¾î º¸Á¸
+		
 		dp[n] = fibonacci(n-2) + fibonacci(n-1);
 		return dp[n];
 	}
 	
-	// ¹ÙÅÒ ¾÷
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	static void fibonacci2(int n) {
 		Arrays.fill(dp, 0);
 		dp[1] = 1;
@@ -46,7 +46,7 @@ public class dp {
 		System.out.println(dp[n]);
 	}
 	
-	// dpÀÌ¿ë ÇÏÁö ¾ÊÀº ÇÇº¸³ªÄ¡ ¼ö¿­
+	// dpï¿½Ì¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Çºï¿½ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
 	static int org_fibonacci(int n) {
 		call[n]++;
 		if(n==0) return 0;

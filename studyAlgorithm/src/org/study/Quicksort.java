@@ -7,19 +7,19 @@ public class Quicksort {
 	}
 	
 	static void quickSort(int[] a, int left, int right) {
-		int pl = left;			//¿ÞÂÊ Ä¿¼­
-		int pr = right;			//¿À¸¥ÂÊ Ä¿¼­
+		int pl = left;			
+		int pr = right;			
 		
-		int x = a[ (pl+pr)/2 ];	//ÇÇ¹þ
+		int x = a[ (pl+pr)/2 ];	//ï¿½Ç¹ï¿½
 		
 		do {
 			while(pl < x) pl++;
 			while(pr > x) pr--;
 			if(pl <= pr)
 				swap(a, pl++, pr--);
-		}while( pl<= pr ); 		// pl°ú prÀÌ ±³Â÷µÇ¸é ÁßÁö.
+		}while( pl<= pr ); 		// plï¿½ï¿½ prï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		
-		// ¹è¿­À» ¹Ýº¹ÇØ¼­ ³ª´²¼­ Á¤·ÄÇÑ´Ù.
+		// ï¿½è¿­ï¿½ï¿½ ï¿½Ýºï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		if(left < pr)	quickSort(a, left, pr);
 		if(right > pl)	quickSort(a, pl, right);
 	}
