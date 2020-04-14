@@ -2,25 +2,49 @@ package org.study;
 
 public class Quicksort {
 
-	static void swap(int[] a, int idx1, int idx2) {
-		int tmp = a[idx1]; a[idx1] = a [idx2]; a[idx2] = tmp;
+	public static void main(String[] args) {
+		int[] arr = { 3, 9, 20, 1, 6, 5 };
+		// 배열a, 배열의 시작, 배열의 끝
+		quickSort(arr, 0, arr.length - 1);
+
+		for (Integer a : arr)
+			System.out.print(a + " ");
 	}
-	
-	static void quickSort(int[] a, int left, int right) {
-		int pl = left;			
-		int pr = right;			
-		
-		int x = a[ (pl+pr)/2 ];	//�ǹ�
-		
+
+	static void swap(int[] a, int idx1, int idx2) {
+		int tmp = a[idx1];
+		a[idx1] = a[idx2];
+		a[idx2] = tmp;
+	}
+
+	static void quickSort(int[] arr, int left, int right) {
+		int pl = left;
+		int pr = right;
+
+		int x = arr[(pl + pr) / 2]; // pivot
+
 		do {
-			while(pl < x) pl++;
-			while(pr > x) pr--;
-			if(pl <= pr)
-				swap(a, pl++, pr--);
-		}while( pl<= pr ); 		// pl�� pr�� �����Ǹ� ����.
+			while (arr[pl] < x)
+				pl++;
+			while (arr[pr] > x)
+				pr--;
+
+			System.out.println("pl="+pl+" pr="+pr+" x="+x);
+			if (pl <= pr)
+				swap(arr, pl++, pr--);
+		
+			for (Integer a : arr)
+				System.out.print(a + " ");
+			System.out.println();
+		
+		} while (pl <= pr); // pl�� pr�� �����Ǹ� ����.
+
+		
 		
 		// �迭�� �ݺ��ؼ� ������ �����Ѵ�.
-		if(left < pr)	quickSort(a, left, pr);
-		if(right > pl)	quickSort(a, pl, right);
+		if (left < pr)
+			quickSort(arr, left, pr);
+		if (right > pl)
+			quickSort(arr, pl, right);
 	}
 }
