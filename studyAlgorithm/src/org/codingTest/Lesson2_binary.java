@@ -1,8 +1,8 @@
-package org.codility;
+package org.codingTest;
 
 import java.util.*;
 
-public class binary {
+public class Lesson2_binary {
 
 	public static void main(String[] args) {
 		solution(1041);

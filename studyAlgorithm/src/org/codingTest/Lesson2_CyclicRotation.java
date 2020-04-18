@@ -1,4 +1,4 @@
-package org.codility;
+package org.codingTest;
 
 public final class Lesson2_CyclicRotation {
 

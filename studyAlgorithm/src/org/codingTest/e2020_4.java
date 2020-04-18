@@ -1,4 +1,4 @@
-package org.codility;
+package org.codingTest;
 
 public class e2020_4 {
 
