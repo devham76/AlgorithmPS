@@ -16,9 +16,9 @@ public class TrieTest {
         //trie에 있는 데이터 콘솔에 나열.
         matcher.printWord(); 
         
-       System.out.println(matcher.search("abc"));
+       System.out.println(matcher.search("abcd"));
        
-       
+      
       
 	}
 
