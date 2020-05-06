@@ -9,7 +9,6 @@ public class kakao_17684 {
 	public static void main(String[] args) {
 		String m = "KAKAO";
 		solution(m);
-
 	}
 
 	public static int[] solution(String msg) {
