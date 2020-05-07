@@ -10,6 +10,13 @@ public class kakao_42890 {
 				{ "300", "tube", "computer", "3" }, { "400", "con", "computer", "4" }, { "500", "muzi", "music", "3" },
 				{ "600", "apeach", "music", "2" } };
 		solution(r);
+		int num = 5;
+		int num2 = ~num;
+		System.out.println("^^");
+		System.out.println(Integer.toBinaryString(num));
+		System.out.println(Integer.toBinaryString(num2));
+		System.out.println(Integer.toBinaryString(~num2));
+		
 	}
 
 	public static int solution(String[][] relation) {
