@@ -30,6 +30,7 @@ public class MakeQueueUsingStack {
 			System.out.println(s.pop());
 		}
 		
+		//------------------------
 		while(!s1.isEmpty()) {
 			int num = s1.pop();
 			s2.push(num);
@@ -38,7 +39,6 @@ public class MakeQueueUsingStack {
 		while(!s2.isEmpty()) {
 			System.out.println(s2.pop());
 		}
-
 	}
 
 }
