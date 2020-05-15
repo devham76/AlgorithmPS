@@ -21,27 +21,26 @@ public class Quicksort {
 		int pl = left;
 		int pr = right;
 
-		int x = arr[(pl + pr) / 2]; // pivot
+		int pivot = arr[(pl + pr) / 2]; // pivot
 
 		do {
-			while (arr[pl] < x)
+			// pivot보다 작은것 , pivot, pivot보다 큰것
+			// 해당 규칙에 위배되는 index를 찾는다.
+			while (arr[pl] < pivot)
 				pl++;
-			while (arr[pr] > x)
+			while (arr[pr] > pivot)
 				pr--;
 
-			System.out.println("pl="+pl+" pr="+pr+" x="+x);
+			System.out.println("pl=" + pl + " pr=" + pr + " x=" + pivot);
 			if (pl <= pr)
 				swap(arr, pl++, pr--);
-		
+
 			for (Integer a : arr)
 				System.out.print(a + " ");
 			System.out.println();
-		
-		} while (pl <= pr); // pl�� pr�� �����Ǹ� ����.
 
-		
-		
-		// �迭�� �ݺ��ؼ� ������ �����Ѵ�.
+		} while (pl <= pr); 
+
 		if (left < pr)
 			quickSort(arr, left, pr);
 		if (right > pl)

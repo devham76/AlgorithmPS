@@ -4,7 +4,7 @@ import java.util.*;
 public class kakao_2019_Tree_findWay {
 
 	public static void main(String[] args) {
-		
+		// 이진탐색트리 문제
 		int[][] nodeinfo = {{5, 3}, {11, 5}, {13, 3}, {3, 5}, {6, 1},{1, 3}, {8, 6}, {7, 2}, {2, 2}};
 		kakao_2019_Tree_findWay k = new kakao_2019_Tree_findWay();
 		k.solution(nodeinfo);
