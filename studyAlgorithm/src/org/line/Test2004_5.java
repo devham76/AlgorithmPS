@@ -43,6 +43,7 @@ public class Test2004_5 {
 				}
 			}
 		}
+		
 		Comparator<doc> Comp = new Comparator<doc>() {
 			public int compare(doc a, doc b) {
 				if(a.cnt == b.cnt)
@@ -52,6 +53,7 @@ public class Test2004_5 {
 			}
 		};
 		list.sort(Comp);
+		
 		int maxLen = list.size() > 10 ? 10 : list.size();
 		String[] answer = new String[maxLen];
 		for(int i=0; i<maxLen; i++) {

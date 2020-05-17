@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class EverySorts {
 
 	public static void main(String[] args) {
-		int[] array = makeRandomArray(100000);
+		int[] array = makeRandomArray(10);
 		EverySorts sort = new EverySorts();
 		 sort.insertion(array);
 		 sort.selection(array);
@@ -148,7 +148,7 @@ public class EverySorts {
 		long stime = System.currentTimeMillis();
 		
 		quick_sort(arr, 0, arr.length - 1);
-		
+		print(arr);
 		
 		long etime = System.currentTimeMillis();
 		time("quick",stime, etime);

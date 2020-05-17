@@ -76,7 +76,7 @@ public class Test2004_4 {
 	}
 }
 
-class info implements Comparator<info>{
+class info implements Comparable<info>{
 	String name;
 	long price;
 
@@ -92,9 +92,14 @@ class info implements Comparator<info>{
 		return price -= p;
 	}
 
-	@Override
 	public int compare(info arg0, info arg1) {
 		
 		return arg0.name.compareTo(arg1.name);
+	}
+
+	@Override
+	public int compareTo(info arg0) {
+		// TODO Auto-generated method stub
+		return this.name.compareTo(arg0.name);
 	}
 }
