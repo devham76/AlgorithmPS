@@ -61,7 +61,7 @@ class dir {
 
 	void addChild(String[] dirs) {
 		for(int i=1; i<dirs.length; i++) {
-			int idx = find(dirs[i]);
+			int idx = find(dirs[i]);ss
 			if (idx != -1) {
 				child.add(new dir(n));
 			}

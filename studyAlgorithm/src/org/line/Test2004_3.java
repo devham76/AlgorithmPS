@@ -10,7 +10,7 @@ public class Test2004_3 {
  * */
 	public static void main(String[] args) {
 		String r = "111011110011111011111100011111";
-		String r1 = "0011001000";
+		String r1 = "0011001001101010";
 		solution(r1, 5);
 
 	}
@@ -23,9 +23,12 @@ public class Test2004_3 {
 		for (int i = 0; i < road.length(); i++) {
 			if (road.charAt(i) == '0') {
 				list.add(i+1);
+				System.out.println(i+1);
 			}
 
 		}
+		
+		System.out.println("---. list size ="+list.size());
 
 		if (n >= list.size()-1) {
 			answer = road.length();
@@ -37,8 +40,9 @@ public class Test2004_3 {
 				else
 					candidate = list.get(i + 1) - list.get(i - n) - 1;
 
+				System.out.println("candidatez");
 				answer = Math.max(answer, candidate);
-
+				
 			}
 		}
 		System.out.println(answer);

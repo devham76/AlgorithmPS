@@ -1,13 +1,16 @@
 package org.line;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 
 /*
  * datasource : 문서, 태그1태그2...
  * tags에 있는 태그를 가지고 있는 문서 나열.
  * */
 
-public class Test2004_5 {
+public class Test2004_5_1 {
 
 	public static void main(String[] args) {
 		String[][] d = { { "doc1", "t1", "t2", "t3" }, { "doc2", "t0", "t2", "t3" }, { "doc3", "t1", "t6", "t7" },
@@ -16,43 +19,32 @@ public class Test2004_5 {
 		solution(d, t);
 	}
 
-	static List<doc> list = new ArrayList<>();
+	static List<doc> list = new LinkedList<>();
 	static HashSet<String> tagsh = new HashSet<>();
 
 	public static String[] solution(String[][] dataSource, String[] tags) {
-		HashMap<String, Integer> hm = new HashMap<>();
 
 		// -- 1. doc마다 tag개수 세어주기
 
 		// -- 개선
-		// tags를 hashset에 넣어주고, doc의 태그드를 확인 
-		// 내가 구현한 find : O(n)
-		// 개선한다면,O(1)
+		// tags를 hashset에 넣어주고, doc의 태그드를 확인 ->
 		for (String tag : tags) {
 			tagsh.add(tag);
 		}
 		// ----
 
-		int docTaglen = dataSource[0].length;
+		int taglen = dataSource[0].length;
 		for (int i = 0; i < dataSource.length; i++) {
 			String docName = dataSource[i][0];
-			for (int t = 0; t < tags.length; t++) {
-				String tag = tags[t];
-
-				// 태그이름이 있다면 cnt+1
-				for (int j = 1; j < docTaglen; j++) {
-					if (tag.equals(dataSource[i][j])) {
-						int idx = find(docName);
-						if (find(docName) == -1) {
-							list.add(new doc(docName, 1));
-						} else {
-							int cnt = list.get(idx).cnt;
-							list.get(idx).addCnt();
-						}
-					}
-
+			int count = 0;
+			for (int j = 1; j < taglen; j++) {
+				if (tagsh.contains(dataSource[i][j])) {
+					count++;
 				}
 			}
+			if (count != 0)
+				list.add(new doc(docName, count));
+
 		}
 
 		Comparator<doc> Comp = new Comparator<doc>() {
@@ -74,32 +66,20 @@ public class Test2004_5 {
 		return answer;
 	}
 
-	private static int find(String docName) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).name.equals(docName)) {
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	private static boolean find2(String docName) {
+	private static boolean find(String docName) {
 		if (tagsh.contains(docName))
 			return true;
 		return false;
 	}
 }
 
-class doc {
+class doc2 {
 	String name;
 	int cnt;
 
-	doc(String name, int cnt) {
+	doc2(String name, int cnt) {
 		this.name = name;
 		this.cnt = cnt;
 	}
 
-	void addCnt() {
-		this.cnt++;
-	}
 }
