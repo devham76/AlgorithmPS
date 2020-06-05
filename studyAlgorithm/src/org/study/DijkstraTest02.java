@@ -10,11 +10,11 @@ public class DijkstraTest02 {
     static final int inf = 1000000;
     
     public static void ssp(int start, int end){
-        dist[start] = 0;    // ÃÖÃÊ ½ÃÀÛ °ª distance ÃÊ±âÈ­
+        dist[start] = 0;    // ìµœì´ˆ ì‹œì‘ ê°’ distance ì´ˆê¸°í™”
         String s = "";
-        for( int j = 0; j < nV; j++) // dist °ªÀ» ÇÑ¹ø ÃÊ±âÈ­ ÇßÀ¸¹Ç·Î n-1¹ø¸¸ ÁøÇà
+        for( int j = 0; j < nV; j++) // dist ê°’ì„ í•œë²ˆ ì´ˆê¸°í™” í–ˆìœ¼ë¯€ë¡œ n-1ë²ˆë§Œ ì§„í–‰
         {
-            int min = inf+1;    // dist ÃÖ¼Ò°ª Ã£±â À§ÇÑ ÀÓ½Ã °ª ÃÊ±âÈ­
+            int min = inf+1;    // dist ìµœì†Œê°’ ì°¾ê¸° ìœ„í•œ ì„ì‹œ ê°’ ì´ˆê¸°í™”
             int index = -1;
             for(int k = 1; k <= nV; k++){
                 if(visit[k] == false && min > dist[k]){
@@ -23,10 +23,10 @@ public class DijkstraTest02 {
                 }
             }
             visit[index] = true;
-            s += index + " ";  // °æ·Î¸¦ Ã¼Å©ÇÏ´Â ¹æ¹ı
+            s += index + " ";  // ê²½ë¡œë¥¼ ì²´í¬í•˜ëŠ” ë°©ë²•
             
             for(int l = 1; l <= nV; l++){
-                if(ad[index][l] != 0 && dist[l] > dist[index] + ad[index][l]){ //ÀÎÁ¢ Çà·ÄÀ» °Ë»çÇÏ¿© ÃÖÀûÀÇ °ªÀ» Ã£¾Æ
+                if(ad[index][l] != 0 && dist[l] > dist[index] + ad[index][l]){ //ì¸ì ‘ í–‰ë ¬ì„ ê²€ì‚¬í•˜ì—¬ ìµœì ì˜ ê°’ì„ ì°¾ì•„
                         dist[l] = dist[index] + ad[index][l];
                 }
                 
@@ -51,7 +51,7 @@ public class DijkstraTest02 {
         visit = new boolean[nV+1];
         
         for(int i = 1; i <= nV; i++){
-            dist[i] = inf;   //ÀÓÀÇÀÇ ¹«ÇÑÇÑ °ªÀ¸·Î °Å¸®°ª ÃÊ±âÈ­
+            dist[i] = inf;   //ì„ì˜ì˜ ë¬´í•œí•œ ê°’ìœ¼ë¡œ ê±°ë¦¬ê°’ ì´ˆê¸°í™”
         }
         
         for(int i = 0; i < nE; i++){
