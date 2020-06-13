@@ -3,8 +3,8 @@ package org.study;
 import java.util.*;
 public class Combination {
 /*
- * Á¶ÇÕ : n °³ Áß¿¡¼­ r °³ ¼±ÅÃ
- * Âü°í : https://bcp0109.tistory.com/15?category=848939
+ * ì¡°í•© : n ê°œ ì¤‘ì—ì„œ r ê°œ ì„ íƒ
+ * ì°¸ê³  : https://bcp0109.tistory.com/15?category=848939
  * */
 	
 	public static void main(String[] args) {
@@ -12,9 +12,9 @@ public class Combination {
 		boolean[] visited = new boolean[arr.length];
 		
 		/*
-		 * ½ÃÀÛ ±âÁØÁ¡Àº ÀÎµ¦½º  0 
-		 * arr.length°³ Áß¿¡¼­ 
-		 * i=1 ; 1°³ ºÎÅÍ arr.length°³ ±îÁö »ÌÀ» °ÍÀÌ´Ù.
+		 * ì‹œì‘ ê¸°ì¤€ì ì€ ì¸ë±ìŠ¤  0 
+		 * arr.lengthê°œ ì¤‘ì—ì„œ 
+		 * i=1 ; 1ê°œ ë¶€í„° arr.lengthê°œ ê¹Œì§€ ë½‘ì„ ê²ƒì´ë‹¤.
 		 */
 		for(int i=1; i<arr.length; i++)
 			combination(arr, visited, 0, arr.length, i);		
@@ -22,32 +22,32 @@ public class Combination {
 	}
 	
 	/*
-	 * ¹éÆ®·¹Å· »ç¿ë
-	 * combination(»ÌÀ» ¹è¿­, »ÌÇû´ÂÁö È®ÀÎÇÏ´Â ¹è¿­, ½ÃÀÛ ±âÁØÁ¡, n°³Áß, r°³ ¼±ÅÃ)
+	 * ë°±íŠ¸ë ˆí‚¹ ì‚¬ìš©
+	 * combination(ë½‘ì„ ë°°ì—´, ë½‘í˜”ëŠ”ì§€ í™•ì¸í•˜ëŠ” ë°°ì—´, ì‹œì‘ ê¸°ì¤€ì , nê°œì¤‘, rê°œ ì„ íƒ)
 	 * */
 	static void combination(int[] arr, boolean[] visited, int start, int n, int r) {
 		
-		// »Ì±â·Î ÇÑ °³¼ö ¸¸Å­ ´Ù »Ì¾Ñ´Ù¸é print
+		// ë½‘ê¸°ë¡œ í•œ ê°œìˆ˜ ë§Œí¼ ë‹¤ ë½‘ì•—ë‹¤ë©´ print
 		if(r==0) {
 			print(arr, visited, n);
 			return;
 		}
 		else {
-			// ±âÁØÁ¡ ÀÎµ¦½º ºÎÅÍ ¹è¿­ÀÇ ³¡±îÁö µÚÁø´Ù
+			// ê¸°ì¤€ì  ì¸ë±ìŠ¤ ë¶€í„° ë°°ì—´ì˜ ëê¹Œì§€ ë’¤ì§„ë‹¤
 			for(int i=start; i<n; i++) {
-				// ¹æ¹® ÈÄ true Ç¥½Ã.
+				// ë°©ë¬¸ í›„ true í‘œì‹œ.
 				visited[i] = true;						
 				
-				// i+1; ¹æ¹®ÇÑ ÀÎµ¦½º ÀÌ ÈÄÀÇ °ªÀ» µÚÁø´Ù / n°³Áß¿¡ Á» Àü¿¡ ¹æ¹® ÇÑ°³ ÇßÀ¸¹Ç·Î r-1°³¸¦ »Ì´Â´Ù
+				// i+1; ë°©ë¬¸í•œ ì¸ë±ìŠ¤ ì´ í›„ì˜ ê°’ì„ ë’¤ì§„ë‹¤ / nê°œì¤‘ì— ì¢€ ì „ì— ë°©ë¬¸ í•œê°œ í–ˆìœ¼ë¯€ë¡œ r-1ê°œë¥¼ ë½‘ëŠ”ë‹¤
 				combination(arr, visited, i+1, n, r-1);	
 				
-				// ¹æ¹® ¿Ï·á ÈÄ false Ç¥½Ã.
+				// ë°©ë¬¸ ì™„ë£Œ í›„ false í‘œì‹œ.
 				visited[i] = false; 					
 			}
 		}
 	}
 	
-	// ¹è¿­ Ãâ·Â
+	// ë°°ì—´ ì¶œë ¥
 	static void print(int[] arr, boolean[] visited, int n) {
 		for(int i=0; i<n; i++) {
 			if(visited[i] == true)

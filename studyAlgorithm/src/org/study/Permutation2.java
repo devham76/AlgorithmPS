@@ -3,9 +3,9 @@ package org.study;
 import java.util.*;
 
 /**
- * ¼ø¿­ : n °³ Áß¿¡¼­ r °³ ¼±ÅÃ
- * ½Ã°£º¹Àâµµ´Â O(n!)
- * ¿¬½À¹®Á¦ : https://www.acmicpc.net/problem/10974
+ * ìˆœì—´ : n ê°œ ì¤‘ì—ì„œ r ê°œ ì„ íƒ
+ * ì‹œê°„ë³µì¡ë„ëŠ” O(n!)
+ * ì—°ìŠµë¬¸ì œ : https://www.acmicpc.net/problem/10974
  */
  
 public class Permutation2 {
@@ -20,8 +20,8 @@ public class Permutation2 {
         permutation(arr, 0, n, 3);
     }
  
-    // ¼ø¼­¸¦ ÁöÅ°¸é¼­ n °³Áß¿¡¼­ r °³¸¦ »Ì´Â °æ¿ì
-    // »ç¿ë ¿¹½Ã: perm(arr, output, visited, 0, n, 3);
+    // ìˆœì„œë¥¼ ì§€í‚¤ë©´ì„œ n ê°œì¤‘ì—ì„œ r ê°œë¥¼ ë½‘ëŠ” ê²½ìš°
+    // ì‚¬ìš© ì˜ˆì‹œ: perm(arr, output, visited, 0, n, 3);
     static void perm(int[] arr, int[] output, boolean[] visited, int depth, int n, int r) {
         if(depth == r) {
             print(output, r);
@@ -33,14 +33,13 @@ public class Permutation2 {
                 visited[i] = true;
                 output[depth] = arr[i];
                 perm(arr, output, visited, depth + 1, n, r);       
-                output[depth] = 0; // ÀÌ ÁÙÀº ¾ø¾îµµ µÊ
-                visited[i] = false;;
+                visited[i] = false;
             }
         }
     }
  
-    // ¼ø¼­ ¾øÀÌ n °³Áß¿¡¼­ r °³¸¦ »Ì´Â °æ¿ì
-    // »ç¿ë ¿¹½Ã: permutation(arr, 0, n, 4);
+    // ìˆœì„œ ì—†ì´ n ê°œì¤‘ì—ì„œ r ê°œë¥¼ ë½‘ëŠ” ê²½ìš°
+    // ì‚¬ìš© ì˜ˆì‹œ: permutation(arr, 0, n, 4);
     static void permutation(int[] arr, int depth, int n, int r) {
         if(depth == r) {
             print(arr, r);
@@ -60,7 +59,7 @@ public class Permutation2 {
         arr[i] = temp;
     }
  
-    // ¹è¿­ Ãâ·Â
+    // ë°°ì—´ ì¶œë ¥
     static void print(int[] arr, int r) {
         for(int i=0; i<r; i++)
             System.out.print(arr[i] + " ");
